@@ -1,29 +1,49 @@
 <html>
 <head>
-    <!-- Bootstrap -->
+    <!-- styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/highlightjs-default.css">
-    <link rel="stylesheet" href="css/metricsgraphics-demo.css">
-    <link rel="stylesheet" href="css/railscasts.css">
-    <link rel="stylesheet" href="css/addons/mg_line_brushing.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 
-
-
-
-
-    <!-- end of Bootstrap -->
+    <!-- js -->
     <script src="js/jquery-2.2.1.min.js"></script>
     <script src="js/d3.min.js" charset='utf-8'></script>
-    <script src="js/metricsgraphics.js"></script>
-    <script src="js/addon/mg-line-brushing.js"></script>
+    <script src="js/plotly-latest.min.js"></script>
     <script src="js/main.js"></script>
-
-
 </head>
 <body>
-<div id="ufo-sightings"></div>
-<div id="brushing"></div>
+<div class="wrapper">
+    <div class="patient-info-summary">
+        <div class="patient-photo"></div>
+        <div class="text">
+            <span class="room-info">
+            Room 3
+            </span>
+            <div class="name">
+                Davide B, Male, 54
+            </div>
+            <div class="note">
+                <span class="em">Allergy:</span> Alzheimer
+            </div>
+        </div>
+
+    </div>
+    <div id="charts">
+        <div class="graph" id="graph1">
+            <span class="graph-name"></span>
+        </div>
+        <div class="graph" id="graph2">
+            <span class="graph-name"></span>
+        </div>
+        <div class="graph" id="graph3">
+            <span class="graph-name"></span>
+        </div>
+        <div class="graph" id="graph4">
+            <span class="graph-name"></span>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

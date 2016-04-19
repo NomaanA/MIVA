@@ -1,36 +1,81 @@
-/*.mg-main-area {*/
-    /*fill: black;*/
-    /*font-size: 0.9rem;*/
-    /*font-weight: 400;*/
-    /*opacity: 0.8;*/
-/*}*/
+body {
+    font-family: 'Lato';
+}
+.wrapper{
+    width: 100%;
+    padding: 2px;
+}
+
+.patient-info-summary{
+    height: 105px;
+    border-bottom: 1px solid black;
+}
+
+.patient-info-summary .note{
+    border: 1px solid #ff5a5a;
+    border-radius: 4px;
+    background-color: #ffbbac;
+    display: inline;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.patient-info-summary .text{
+    top: 6px;
+    position: relative;
+}
+
+.room-info{
+    border: 1px solid green;
+    border-radius: 5px;
+    background-color: #b3ffb3;
+    padding: 5px;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+}
+.patient-photo{
+    background-image: url("http://www.ibj.com/ext/resources/mugs/B1/bolchini-davide-mug.jpg");
+    display: inline;
+    background-repeat:no-repeat;
+    background-size:contain;
+    width: 69px;
+    height: 100px;
+    border-radius: 20px;
+    float: left;
+    margin: 0 10px;
+    /*position: absolute;*/
+
+}
+.name {
+   font-size: 20px;
+    font-weight: bold;
+    margin:5px 0;
+}
 
 
-/*.mg-main-line{*/
-    /*fill: red;*/
-/*}*/
 
-/*.mg-area1-color {*/
-    /*fill: red;*/
-/*}*/
+.graph {
+    border-bottom: 1px solid gray;
+}
+.em{
+
+}
+
+.charts{
+    border: 1px solid green;
+    height: 500px;
+    width: 100%;
+}
+
+#charts .graph-name{
+    margin:0 10px;
+    position: relative;
+    top: 3px;
+    font-size: 17px;
+    font-weight: bold;
 
 
-/*.mg-area2-color {*/
-    /*fill: #05b378;*/
-/*}*/
-
-/*.mg-area3-color {*/
-    /*fill: #db4437;*/
-/*}*/
-
-/*.mg-area4-color {*/
-    /*fill: #f8b128;*/
-/*}*/
-
-/*.mg-area5-color {*/
-    /*fill: #5c5c5c;*/
-/*}*/
-
-/*.mg-data-table {*/
-    /*margin-top: 30px;*/
-/*}*/
+    /*border: 1px solid red;*/
+    /*width: 20px;*/
+}
