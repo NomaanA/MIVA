@@ -35,7 +35,7 @@ body {
     /*justify-content: center;*/
 }
 .patient-photo{
-    background-image: url("http://www.ibj.com/ext/resources/mugs/B1/bolchini-davide-mug.jpg");
+    /*background-image: url("http://www.ibj.com/ext/resources/mugs/B1/bolchini-davide-mug.jpg");*/
     display: inline;
     background-repeat:no-repeat;
     background-size:contain;
@@ -62,12 +62,21 @@ body {
 
 }
 
+
+.svg-container {
+    z-index: -99;
+}
 .charts{
     border: 1px solid green;
     height: 500px;
     width: 100%;
 }
+.graph-artifacts{
 
+    width: 100px;
+    float: left;
+    z-index: 99999;
+}
 #charts .graph-name{
     margin:0 10px;
     position: relative;
@@ -78,4 +87,19 @@ body {
 
     /*border: 1px solid red;*/
     /*width: 20px;*/
+}
+
+#charts .graph-photo {
+    /*background-image: url("../images/heart-rate.png");*/
+    display: block;
+    height: 47px;
+    width: 54px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px 0 0 5px;
+}
+
+.tabs {
+    position: relative;
+    top:10px;
 }

@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     var d3 = Plotly.d3;
 
-    var WIDTH_IN_PERCENT_OF_PARENT = 100,
+    var WIDTH_IN_PERCENT_OF_PARENT = 95,
         HEIGHT_IN_PERCENT_OF_PARENT = 80;
 
 
@@ -15,7 +15,8 @@ $( document ).ready(function() {
                 type: 'scatter',
                 //text: ['Text A', 'Text B', 'Text C', 'Text D', 'Text E'],
                 //mode: 'markers'
-            }]
+            }],
+            "image" : "images/blood-pressure.png"
         },
         {
             name: "SVO2",
@@ -26,7 +27,8 @@ $( document ).ready(function() {
                 type: 'scatter',
                 //text: ['Text A', 'Text B', 'Text C', 'Text D', 'Text E'],
                 //mode: 'markers'
-            }]
+            }],
+            "image" : "images/lungs.png"
         },
         {
             name: "Hear Rate",
@@ -37,7 +39,8 @@ $( document ).ready(function() {
                 type: 'scatter',
                 //text: ['Text A', 'Text B', 'Text C', 'Text D', 'Text E'],
                 //mode: 'markers'
-            }]
+            }],
+            "image" : "images/heart-rate.png"
         },
         {
             name: "ABP NON",
@@ -48,7 +51,9 @@ $( document ).ready(function() {
                 type: 'scatter',
                 //text: ['Text A', 'Text B', 'Text C', 'Text D', 'Text E'],
                 //mode: 'markers'
-            }]
+            }],
+            "image" : "images/blood-pressure.png"
+
         }
     ];
 
@@ -95,7 +100,8 @@ $( document ).ready(function() {
         Plotly.plot(graphs[i].node, graphs[i].data, layout);
 
         $(graph).find('.graph-name').text(graphs[i].name);
-        graphs[i].node
+        $(graph).find(" .graph-photo").css("background-image","url("+graphs[i].image+")");
+
 
         window.onresize = function() {
             for(var j = 0; j < graphs.length; j++){
@@ -103,6 +109,38 @@ $( document ).ready(function() {
             }
         };
     }
+
+    /****
+     *
+     *
+     *
+     *
+     *
+     */
+    $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function(e) {
+        var $target = $(e.target);
+        var $tabs = $target.closest('.nav-tabs-responsive');
+        var $current = $target.closest('li');
+        var $parent = $current.closest('li.dropdown');
+        $current = $parent.length > 0 ? $parent : $current;
+        var $next = $current.next();
+        var $prev = $current.prev();
+        var updateDropdownMenu = function($el, position){
+            $el
+                .find('.dropdown-menu')
+                .removeClass('pull-xs-left pull-xs-center pull-xs-right')
+                .addClass( 'pull-xs-' + position );
+        };
+
+        $tabs.find('>li').removeClass('next prev');
+        $prev.addClass('prev');
+        $next.addClass('next');
+
+        updateDropdownMenu( $prev, 'left' );
+        updateDropdownMenu( $current, 'center' );
+        updateDropdownMenu( $next, 'right' );
+    });
+
 
 
 
