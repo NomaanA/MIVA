@@ -5,13 +5,15 @@ $( document ).ready(function() {
         HEIGHT_IN_PERCENT_OF_PARENT = 90;
 
     var number_of_reuslts = 10;
+    var dates = ['2013-03-04 22:23:00', '2013-04-04 22:23:00', '2013-05-04 22:23:00', '2013-06-04 22:23:00', '2013-07-04 22:23:00', '2013-08-04 22:23:00', '2013-09-04 22:23:00',   '2013-10-04 22:23:00', '2013-11-04 22:23:00', '2013-12-04 22:23:00']
 
     var graph_margin = {
         l : 0,
         r: -10,
         b: 0,
         t: 5
-    }
+    };
+
     var generateRandom = function(low, high, instances){
         var resultArray = [];
         for(var i= 0; i <= instances; i++){
@@ -32,7 +34,8 @@ $( document ).ready(function() {
                 //mode: 'markers'
             }],
             "image" : "images/blood-pressure.png",
-            margin: graph_margin
+            margin: graph_margin,
+            symbol : "circle"
         },
         {
             name: "SVO2",
@@ -68,14 +71,26 @@ $( document ).ready(function() {
                 y: generateRandom(45, 85, number_of_reuslts),
                 type: 'scatter',
                 //text: ['Text A', 'Text B', 'Text C', 'Text D', 'Text E'],
-                //mode: 'markers'
+                //type: 'scatter'
             }],
             "image" : "images/blood-pressure.png",
             margin: graph_margin
+        },
+        {
+            name: "",
+            data: {
+                x : dates,
+                type: 'scatter'
+            }
         }
     ];
 
     var graph = "#graph";
+
+
+    /*
+
+     */
 
     for(var i= 0; i < graphs.length; i++){
         //for each graph, should pass in the info in to a loop
@@ -93,16 +108,6 @@ $( document ).ready(function() {
             });
 
         graphs[i].node = gd3.node();
-        //var data = [
-        //    {
-        //        //x: ['2013-10-04 22:23:00', '2013-11-04 22:23:00', '2013-12-04 22:23:00'],
-        //        y: [7, 8, 9,10, 11, 12, 13, 14, 15, 14, 10, 12, 7, 12, 8],
-        //        type: 'scatter',
-        //        //text: ['Text A', 'Text B', 'Text C', 'Text D', 'Text E'],
-        //        //mode: 'markers'
-        //    }
-        //];
-
 
         var layout = {
             yaxis: {
@@ -111,16 +116,20 @@ $( document ).ready(function() {
             },
             xaxis: {
                 showgrid: false,                  // remove the x-axis grid lines
-                tickformat: "%B, %Y"              // customize the date format to "month, day"
+                //tickformat: "%B, %Y"              // customize the date format to "month, day"
             },
             margin: {                           // update the left, bottom, right, top margin
                 l: 100, b: 0, r: 0, t: 0
-            },
+            }
         };
+
+        if(i == graphs.length - 1){
+            layout.height = "100";
+            graphs[i].node = "timeline";
+            //TODO: fix this
+            break;
+        }
         Plotly.plot(graphs[i].node, graphs[i].data, layout);
-        console.log(graph);
-        console.log($(graph));
-        console.log(graphs[i].node);
 
         $(graph).find('.graph-name').text(graphs[i].name);
         $(graph).find(" .graph-photo").css("background-image","url("+graphs[i].image+")");
