@@ -2,12 +2,17 @@ body {
     font-family: 'Lato';
 }
 .wrapper{
-    width: 100%;
-    padding: 2px;
+    width: 95%;
+    /*padding: 2px;*/
+    margin: 0 auto;
+}
+
+.emph {
+    font-weight: bold;
 }
 
 .patient-info-summary{
-    height: 105px;
+    height: 115px;
     border-bottom: 1px solid black;
 }
 
@@ -23,12 +28,16 @@ body {
 .patient-info-summary .text{
     top: 6px;
     position: relative;
+    border-right: 1px solid #ddd;
+    width: 220px;
+    float: left;
+    margin-right: 20px;
 }
 
 .room-info{
     border: 1px solid green;
     border-radius: 5px;
-    background-color: #b3ffb3;
+    /*background-color: #b3ffb3;*/
     padding: 5px;
     /*display: flex;*/
     /*align-items: center;*/
@@ -53,10 +62,23 @@ body {
     margin:5px 0;
 }
 
+.extra-info {
+    position: relative;
+    top: 10px;
+    width: 220px;
+    float: left;
+}
 
+.prior-incidents {
+    border: 1px solid  #fb7672;
+    padding:2px;
+    border-radius: 5px;
+    margin:2px 0;
+}
 
 .graph {
-    border-bottom: 1px solid gray;
+    /*border-bottom: 1px solid gray;*/
+    margin: 10px 0;
 }
 .em{
 
@@ -64,25 +86,30 @@ body {
 
 
 .svg-container {
-    z-index: -99;
+    z-index: 99999;
 }
 .charts{
     border: 1px solid green;
     height: 500px;
     width: 100%;
 }
-.graph-artifacts{
 
-    width: 100px;
-    float: left;
-    z-index: 99999;
+.graph-artifacts{
+    /*width: 100px;*/
+    /*height:200px;*/
+    /*float: left;*/
+    /*z-index: 9;*/
+    /*margin: 0 0 0 20px;*/
+    border: 1px solid #ddd;
 }
 #charts .graph-name{
     margin:0 10px;
     position: relative;
-    top: 3px;
+    top: 13px;
+    left: 11px;
     font-size: 17px;
     font-weight: bold;
+    z-index: 999999999;
 
 
     /*border: 1px solid red;*/
@@ -90,8 +117,11 @@ body {
 }
 
 #charts .graph-photo {
-    /*background-image: url("../images/heart-rate.png");*/
-    display: block;
+    position: relative;
+    top: 30px;
+    display: inline-block;
+    float: left;
+    left: 11px;
     height: 47px;
     width: 54px;
     background-size: contain;
