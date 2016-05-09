@@ -5,14 +5,41 @@ $( document ).ready(function() {
         HEIGHT_IN_PERCENT_OF_PARENT = 90;
 
     var number_of_reuslts = 10;
-    var dates = ['2013-03-04 22:23:00', '2013-04-04 22:23:00', '2013-05-04 22:23:00', '2013-06-04 22:23:00', '2013-07-04 22:23:00', '2013-08-04 22:23:00', '2013-09-04 22:23:00',   '2013-10-04 22:23:00', '2013-11-04 22:23:00', '2013-12-04 22:23:00']
-
+    //var dates = ['2013-03-04 22:23:00', '2013-04-04 22:23:00', '2013-05-04 22:23:00', '2013-06-04 22:23:00', '2013-07-04 22:23:00', '2013-08-04 22:23:00', '2013-09-04 22:23:00',   '2013-10-04 22:23:00', '2013-11-04 22:23:00', '2013-12-04 22:23:00']
+    var dates = ["2001-06-11 11:00","2001-06-11 11:10","2001-06-11 11:20","2001-06-11 11:30", "2001-06-11 11:40", "2001-06-11 11:50", "2001-06-11 12:00", "2001-06-11 12:10", "2001-06-11 12:20", "2001-06-11 12:30"];
     var graph_margin = {
         l : 0,
         r: -10,
         b: 0,
         t: 5
     };
+    var y1 = [4, 4, 4, 4, 4, 4, 4, 4];
+    var y2 = y1.reverse();
+
+    //data for the timeline graph
+    data = [
+        {
+            x:dates,
+            y:y1,
+            type:'scatter',
+            //mode:'markers',
+            marker:{
+                color:'rgba(200, 50, 100, .7)',
+                size:16
+            },
+            //hoverinfo:"x+y"
+        },{
+            x:dates,
+            y: y2,
+            type:'scatter',
+            //mode:'markers',
+            marker:{
+                color:'rgba(10, 180, 180, .8)',
+                size:16
+            },
+            //hoverinfo:"x+y"
+        }
+    ];
 
     var generateRandom = function(low, high, instances){
         var resultArray = [];
@@ -87,20 +114,20 @@ $( document ).ready(function() {
             name: ".",
             order: 5,
             node : "",
-            data : [{
-                y: [1, 2, 3, 4, 4, 4, 4, 5, 8, 10],
-                x: [1, 2, 3, 4, 4, 4, 4, 5, 8, 10],
-
-                mode: 'markers',
-                marker: {
-                    size: [1, 2, 3, 4, 4, 4, 4, 5, 8, 10],
-                    color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
-                },
-                //x: dates,
-                //type: 'scatter',
-                //text: ['Text A', 'Text B', 'Text C', 'Text D', 'Text E'],
-                //type: 'scatter'
-            }],
+            data: data,
+            //data : [{
+            //    //y: [1, 2, 3, 4, 4, 4, 4, 5, 8, 10],
+            //    x: dates,
+            //    mode: 'markers',
+            //    marker: {
+            //        //size: [1, 2, 3, 4, 4, 4, 4, 5, 8, 10],
+            //        //color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
+            //    },
+            //    //x: dates,
+            //    //type: 'scatter',
+            //    //text: ['Text A', 'Text B', 'Text C', 'Text D', 'Text E'],
+            //    //type: 'scatter'
+            //}],
             //"image" : "images/blood-pressure.png",
             margin: graph_margin,
             current: ""
@@ -157,6 +184,7 @@ $( document ).ready(function() {
             gd3.style({
                 height: 80
             });
+            layout.showlegend = false;
 
             layout.yaxis = {
                 showgrid: false,
@@ -173,7 +201,17 @@ $( document ).ready(function() {
             };
 
             layout.xaxis = {
-                rangemode: 'tozero',
+                //rangemode: 'tozero',
+                //showgrid: true,
+                ////zeroline: false,
+                //showline: true,
+                //autotick: true,
+                //ticks: '',
+                //showticklabels: true,
+                //showlegend: true,
+                //mirror: 'ticks',
+                //rangemode: 'nonnegative',
+                //fixedrange: true
             }
             //graphs[i].node = "timeline";
         }
@@ -226,9 +264,5 @@ $( document ).ready(function() {
         updateDropdownMenu( $current, 'center' );
         updateDropdownMenu( $next, 'right' );
     });
-
-
-
-
 });
 
