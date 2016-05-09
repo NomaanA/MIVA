@@ -17,8 +17,9 @@ body {
 }
 
 .patient-info-summary{
-    height: 115px;
-    border-bottom: 1px solid black;
+    height: 18%;
+    border-bottom: 1px solid #929292;
+    padding: 4px 0;
 }
 
 .patient-info-summary .note{
@@ -77,15 +78,24 @@ body {
     padding:2px;
     border-radius: 5px;
     margin:2px 0;
+    display: inline-block;
 }
 
 .graph {
     margin: 10px 0;
 }
-.em{
 
+
+/**
+for some odd reason, the first graph is acting up with the name and the photo!
+*/
+#graph1 .graph-name {
+ left: 0px !important;
 }
 
+#graph1 .graph-photo {
+    left: 0px !important;
+}
 
 .svg-container {
     z-index: 99999;
@@ -110,7 +120,7 @@ body {
     position: relative;
     float: left;
     top: -88px;
-    left: 101px;
+    left: 78px;
     font-size: 64px;
     z-index: 9999999;
     color: rgb(31, 119, 180);
@@ -124,17 +134,16 @@ body {
     /*z-index: 9;*/
     /*margin: 0 0 0 20px;*/
     border: 1px solid #ddd;
+
 }
 #charts .graph-name{
     margin: 0 10px;
     position: relative;
-    top: 13px;
-    left: -43px;
+    /*top: 13px;*/
+    left: -87px;
     font-size: 17px;
     font-weight: bold;
     z-index: 999999999;
-
-
     /*border: 1px solid red;*/
     /*width: 20px;*/
 }
@@ -144,7 +153,7 @@ body {
     top: 30px;
     display: inline-block;
     float: left;
-    left: -50px;
+    left: -68px;
     height: 47px;
     width: 54px;
     background-size: contain;
@@ -155,6 +164,12 @@ body {
 .tabs {
     position: relative;
     top:10px;
+}
+
+.clean {
+    border: none;
+    top: -27px;
+    position: relative;
 }
 
 
