@@ -52,9 +52,8 @@
     <div id="charts">
         <div class="graph" >
             <div class="graph-artifacts" id="graph1">
-                <span ></span>
-                <span class="graph-name"></span>
                 <span class="graph-photo"></span>
+                <span class="graph-name"></span>
             </div>
 
         </div>
@@ -80,7 +79,14 @@
             </div>
         </div>
 
-        <div class="graph">
+        <!--<div class="graph">-->
+            <!--<div class="graph-artifacts" id="graph5">-->
+                <!--<span></span>-->
+                <!--<span class="graph-name"></span>-->
+                <!--<span class="graph-photo"></span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div id="timeline" class="graph">
             <div class="graph-artifacts" id="graph5">
                 <span></span>
                 <span class="graph-name"></span>
@@ -88,9 +94,7 @@
             </div>
         </div>
     </div>
-    <div id="timeline">
 
-    </div>
     <div class="tabs">
         <div class="col-lg-12">
             <ul class="nav nav-tabs" role="tablist">
@@ -111,11 +115,86 @@
     </div>
 
 
-    <div class="col-lg-8">
         <!-- Tab panes -->
-        <div class="tab-content">
+	<div class="">
+	<div class="tab-content">
             <div class="tab-pane active" id="medication" role="tabpanel">
-
+			
+				<div class="input-group adv-search-panel clearfix" id="adv-search">
+					<input type="text" class="form-control" placeholder="Search for medication">
+					<div class="input-group-btn">
+						<div class="btn-group" role="group">
+							<div class="dropdown dropdown-lg">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+								<div class="dropdown-menu dropdown-menu-right" role="menu">
+									<form class="form-horizontal" role="form">
+									  <div class="form-group">
+										<label for="filter">Filter by</label>
+										<select class="form-control">
+											<option value="0" selected="">Time</option>
+											<option value="1">Date</option>
+											<option value="2">Attendant</option>
+										</select>
+									  </div>
+									  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+									</form>
+								</div>
+							</div>
+							<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+						</div>
+					</div>
+				</div>
+			
+				<div class="panel-group clearfix" id="accordion" role="tablist" aria-multiselectable="true">
+				  <div class="panel panel-default">
+					<div class="panel-heading medication-collapse" role="tab" id="headingOne">
+					  <h4 class="panel-title">
+						<a class="accordion-toggle" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+							<span class="medication-title-medicine">Tylenol C: </span>
+							<span class="medication-title-dose">600 mg</span> <span class="medication-title-po">PO</span> <span class="medication-title-date">Date: 2/15/16</span> <span class="medication-title-dosagedetails">Doses given: 21:00</span>
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+					  <div class="panel-body">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					  </div>
+					</div>
+				  </div>
+				  <div class="panel panel-default">
+					<div class="panel-heading medication-collapse" role="tab" id="headingThree">
+					  <h4 class="panel-title">
+						<a class="accordion-toggle" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+							<span class="medication-title-medicine">Saline So: </span>
+							<span class="medication-title-dose">6 ml</span> <span class="medication-title-po">PO</span> <span class="medication-title-date">Date: 2/15/16</span> <span class="medication-title-dosagedetails">Doses given:1:00, 21:00</span>
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+					  <div class="panel-body">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					  </div>
+					</div>
+				  </div>
+				  <div class="panel panel-default">
+					<div class="panel-heading medication-collapse" role="tab" id="headingFive">
+					  <h4 class="panel-title">
+						<a class="accordion-toggle" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+							<span class="medication-title-medicine">Ampicillin: </span>
+							<span class="medication-title-dose">150mg</span> <span class="medication-title-po">PO</span> <span class="medication-title-date">Date: 2/15/16</span> <span class="medication-title-dosagedetails">Doses given:18:00, 21:00</span>
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+					  <div class="panel-body">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					  </div>
+					</div>
+				  </div>
+				</div>
             </div>
             <div class="tab-pane" id="labs" role="tabpanel">
 
@@ -126,7 +205,56 @@
             <div class="tab-pane" id="procedure" role="tabpanel">
 
             </div>
-        </div>
+			<div class="tab-pane" id="notes" role="tabpanel">
+				<div class="input-group adv-search-panel clearfix" id="adv-search-notes">
+					<input type="text" class="form-control" placeholder="Search for notes">
+					<div class="input-group-btn">
+						<div class="btn-group" role="group">
+							<div class="dropdown dropdown-lg">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+								<div class="dropdown-menu dropdown-menu-right" role="menu">
+									<form class="form-horizontal" role="form">
+									  <div class="form-group">
+										<label for="filter">Filter by</label>
+										<select class="form-control">
+											<option value="0" selected="">Time</option>
+											<option value="1">Date</option>
+											<option value="2">Attendant</option>
+										</select>
+									  </div>
+									  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+									</form>
+								</div>
+							</div>
+							<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="panel panel-default clearfix notes-panel-body">
+					<div class="panel-body">
+						<b> 2:05 AM 04/12/2016     RN Nancy: </b>
+						Lorem ipsum dolor sit amet, ad has molestiae disputando, justo congue patrioque eum id. Te dolorem definiebas reprimique cum, eu clita impedit accusamus cum. Pri natum postulant et. Hendrerit definiebas sed in.
+					</div>
+					<div class="panel-body">
+						<b> 11:05 AM 04/12/2016     RN Nancy: </b>
+						Lorem ipsum dolor sit amet, ad has molestiae disputando, justo congue patrioque eum id. Te dolorem definiebas reprimique cum, eu clita impedit accusamus cum. Pri natum postulant et. Hendrerit definiebas sed in.
+					</div>
+					<div class="panel-body">
+						<b> 4:05 PM 04/11/2016     RN Nancy: </b>
+						Lorem ipsum dolor sit amet, ad has molestiae disputando, justo congue patrioque eum id. Te dolorem definiebas reprimique cum, eu clita impedit accusamus cum. Pri natum postulant et. Hendrerit definiebas sed in.
+					</div>
+					<div class="panel-body">
+						<b> 11:05 AM 04/11/2016     RN Nancy: </b>
+						Lorem ipsum dolor sit amet, ad has molestiae disputando, justo congue patrioque eum id. Te dolorem definiebas reprimique cum, eu clita impedit accusamus cum. Pri natum postulant et. Hendrerit definiebas sed in.
+					</div>
+					<div class="panel-body">
+						<b> 4:05 PM 04/10/2016     RN Nancy: </b>
+						Lorem ipsum dolor sit amet, ad has molestiae disputando, justo congue patrioque eum id. Te dolorem definiebas reprimique cum, eu clita impedit accusamus cum. Pri natum postulant et. Hendrerit definiebas sed in.
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
 </div>
 

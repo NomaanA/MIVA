@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     var d3 = Plotly.d3;
 
-    var WIDTH_IN_PERCENT_OF_PARENT = 90,
+    var WIDTH_IN_PERCENT_OF_PARENT = 92,
         HEIGHT_IN_PERCENT_OF_PARENT = 90;
 
     var number_of_reuslts = 10;
@@ -20,6 +20,7 @@ $( document ).ready(function() {
             resultArray[i] =  Math.floor(Math.random() * (high - low) + low);
         }
 
+
         return resultArray;
     };
     var graphs =  [
@@ -35,7 +36,8 @@ $( document ).ready(function() {
             }],
             "image" : "images/blood-pressure.png",
             margin: graph_margin,
-            symbol : "circle"
+            symbol : "circle",
+            current: "12"
         },
         {
             name: "SVO2",
@@ -48,7 +50,8 @@ $( document ).ready(function() {
                 //mode: 'markers'
             }],
             "image" : "images/lungs.png",
-            margin: graph_margin
+            margin: graph_margin,
+            current: "41"
         },
         {
             name: "Hear Rate",
@@ -61,7 +64,9 @@ $( document ).ready(function() {
                 //mode: 'markers'
             }],
             "image" : "images/heart-rate.png",
-            margin: graph_margin
+            margin: graph_margin,
+            current: "75"
+
         },
         {
             name: "ABP NON",
@@ -74,28 +79,46 @@ $( document ).ready(function() {
                 //type: 'scatter'
             }],
             "image" : "images/blood-pressure.png",
-            margin: graph_margin
+            margin: graph_margin,
+            current: "73"
+
         },
         {
-            name: "",
-            data: {
-                x : dates,
-                type: 'scatter'
-            }
+            name: ".",
+            order: 5,
+            node : "",
+            data : [{
+                y: [1, 2, 3, 4, 4, 4, 4, 5, 8, 10],
+                x: [1, 2, 3, 4, 4, 4, 4, 5, 8, 10],
+
+                mode: 'markers',
+                marker: {
+                    size: [1, 2, 3, 4, 4, 4, 4, 5, 8, 10],
+                    color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
+                },
+                //x: dates,
+                //type: 'scatter',
+                //text: ['Text A', 'Text B', 'Text C', 'Text D', 'Text E'],
+                //type: 'scatter'
+            }],
+            //"image" : "images/blood-pressure.png",
+            margin: graph_margin,
+            current: ""
+
         }
     ];
 
     var graph = "#graph";
 
 
-    /*
-
-     */
-
     for(var i= 0; i < graphs.length; i++){
         //for each graph, should pass in the info in to a loop
+
         var graph = "#graph";
         graph = graph+ graphs[i].order;
+
+
+
 
         var gd3 = d3.select(graph)
             .append('div')
@@ -107,32 +130,66 @@ $( document ).ready(function() {
                 top: -10
             });
 
+
+        graphs[i].data[0].mode = "lines";
         graphs[i].node = gd3.node();
 
         var layout = {
             yaxis: {
                 linewidth: 0,
-                showticklabels: true
+                showticklabels: true,
+                autorange: true
             },
             xaxis: {
-                showgrid: false,                  // remove the x-axis grid lines
+                showgrid: false,
+
+                // remove the x-axis grid lines
                 //tickformat: "%B, %Y"              // customize the date format to "month, day"
             },
             margin: {                           // update the left, bottom, right, top margin
                 l: 100, b: 0, r: 0, t: 0
-            }
+            },
+
         };
 
-        if(i == graphs.length - 1){
-            layout.height = "100";
-            graphs[i].node = "timeline";
-            //TODO: fix this
-            break;
-        }
-        Plotly.plot(graphs[i].node, graphs[i].data, layout);
+        if(i == graphs.length - 1) {
+            //debugger;
+            gd3.style({
+                height: 80
+            });
 
+            layout.yaxis = {
+                showgrid: false,
+                //zeroline: false,
+                showline: false,
+                autotick: true,
+                ticks: '',
+                showticklabels: false,
+                showlegend: false,
+                mirror: 'ticks',
+                rangemode: 'nonnegative',
+                fixedrange: true
+                //type: log
+            };
+
+            layout.xaxis = {
+                rangemode: 'tozero',
+            }
+            //graphs[i].node = "timeline";
+        }
+
+
+
+        Plotly.plot(graphs[i].node, graphs[i].data, layout, {
+            displayModeBar: false,
+            //scrollZoom: true
+        });
         $(graph).find('.graph-name').text(graphs[i].name);
+        //OUCH THIS HURTS!
+        $(graph).append("<div class='current'>"+graphs[i].current+"</div>");
+        //$(graph).find('.current').text(graphs[i].current);
         $(graph).find(" .graph-photo").css("background-image","url("+graphs[i].image+")");
+
 
 
         window.onresize = function() {
@@ -142,12 +199,9 @@ $( document ).ready(function() {
         };
     }
 
-    /****
+    /**
      *
-     *
-     *
-     *
-     *
+     *    TAB
      */
     $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function(e) {
         var $target = $(e.target);
