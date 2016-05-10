@@ -21,35 +21,8 @@ $( document ).ready(function() {
 
     drawGraphs(getData());
     drawTimeline();
+    tabManagment();
 
-
-    /**
-     *
-     *    TAB
-     */
-    $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function(e) {
-        var $target = $(e.target);
-        var $tabs = $target.closest('.nav-tabs-responsive');
-        var $current = $target.closest('li');
-        var $parent = $current.closest('li.dropdown');
-        $current = $parent.length > 0 ? $parent : $current;
-        var $next = $current.next();
-        var $prev = $current.prev();
-        var updateDropdownMenu = function($el, position){
-            $el
-                .find('.dropdown-menu')
-                .removeClass('pull-xs-left pull-xs-center pull-xs-right')
-                .addClass( 'pull-xs-' + position );
-        };
-
-        $tabs.find('>li').removeClass('next prev');
-        $prev.addClass('prev');
-        $next.addClass('next');
-
-        updateDropdownMenu( $prev, 'left' );
-        updateDropdownMenu( $current, 'center' );
-        updateDropdownMenu( $next, 'right' );
-    });
 });
 
 
@@ -169,19 +142,18 @@ var drawGraphs = function (graphs, layout) {
 };
 
 var drawTimeline = function () {
-    //debugger;
-    //var gd3 = d3.select("#timeline")
-    //    .append('div')
-    //    .style({
-    //        width: 100 + '%',
-    //        //'margin-left': (100 - WIDTH_IN_PERCENT_OF_PARENT) + '%',
-    //        height: 100,
-    //        position: "relative",
-    //        //top: -10
-    //    });
+    var gd3 = d3.select("#timeline")
+        .append('div')
+        .style({
+            width: 80 + '%',
+            'margin-left':'10%',
+            height: 100,
+            position: "relative",
+        });
 
 
     var trace1 = {
+        name: "Notes",
         x: config.dates,
         y: [1, 1, 1, 1, 1, 1, 1, 1, 1],
         mode: 'markers',
@@ -192,11 +164,23 @@ var drawTimeline = function () {
         }
     };
 
-    var data = [trace1];
+    var trace2 = {
+        name: "Notes",
+        x: config.dates,
+        y: [2, 2, 2, 2, 2, 2, 2, 2, 2],
+        mode: 'markers',
+        marker: {
+            size: [20, 20, 20, 20],
+            color: ['rgb(255, 144, 14)', 'rgb(93, 164, 214)', 'rgb(255, 65, 54)', 'rgb(44, 160, 101)', ],
+            symbol: ['square', 'square', 'square', 'square']
+        }
+    };
+
+    var data = [trace1, trace2];
 
     var layout = {
         showlegend: false,
-        height: 200,
+        height: 300,
         //width: 480
         yaxis: {
             autorange: true,
@@ -206,12 +190,22 @@ var drawTimeline = function () {
             autotick: true,
             ticks: '',
             showticklabels: false
+        },
+        margin: {
+            l: 100,
+            r: 0,
+            b: 0,
+            t: 0,
+            pad: 0
+        },
+        xaxis: {
+            showgrid: true,
+            // remove the x-axis grid lines
+            tickformat: "%B, %Y"              // customize the date format to "month, day"
         }
-        //width: 480
     };
 
-    Plotly.newPlot("test", data, layout,  {displayModeBar: false});
-
+    Plotly.newPlot(gd3.node(), data, layout,  {displayModeBar: false});
 }
 
 var getData = function () {
@@ -288,4 +282,30 @@ var getData = function () {
     ];
 
     return data;
+}
+
+var tabManagment = function () {
+    $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function(e) {
+        var $target = $(e.target);
+        var $tabs = $target.closest('.nav-tabs-responsive');
+        var $current = $target.closest('li');
+        var $parent = $current.closest('li.dropdown');
+        $current = $parent.length > 0 ? $parent : $current;
+        var $next = $current.next();
+        var $prev = $current.prev();
+        var updateDropdownMenu = function($el, position){
+            $el
+                .find('.dropdown-menu')
+                .removeClass('pull-xs-left pull-xs-center pull-xs-right')
+                .addClass( 'pull-xs-' + position );
+        };
+
+        $tabs.find('>li').removeClass('next prev');
+        $prev.addClass('prev');
+        $next.addClass('next');
+
+        updateDropdownMenu( $prev, 'left' );
+        updateDropdownMenu( $current, 'center' );
+        updateDropdownMenu( $next, 'right' );
+    });
 }

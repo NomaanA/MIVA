@@ -107,18 +107,14 @@ for some odd reason, the first graph is acting up with the name and the photo!
 }
 
 
-/*#graph5 {*/
-    /*height: 30px;*/
-/*}*/
-
 #timeline .graph-artifacts{
     border: none;
     /*height:200px;*/
 }
 
 #timeline {
-    /*height: 131px;*/
-    border: 1px solid red;
+    border-top: 1px solid #c7c7c7;
+    border-bottom: 1px solid #c7c7c7;
 }
 
 
@@ -134,14 +130,9 @@ for some odd reason, the first graph is acting up with the name and the photo!
 }
 
 .graph-artifacts{
-    /*width: 100px;*/
-    /*height:200px;*/
-    /*float: left;*/
-    /*z-index: 9;*/
-    /*margin: 0 0 0 20px;*/
     border: 1px solid #ddd;
-
 }
+
 #charts .graph-name{
     margin: 0 10px;
     position: relative;
@@ -167,6 +158,23 @@ for some odd reason, the first graph is acting up with the name and the photo!
     margin: 10px 0 0 5px;
 }
 
+
+/**** TABS *****/
+#medication {
+
+}
+
+#labs {
+
+}
+
+#imaging {
+
+}
+
+#procedure {
+
+}
 .tabs {
     position: relative;
     top:10px;
